@@ -4,7 +4,7 @@ import actions from '../../redux/contacts-actions';
 import styles from './ContactList.module.css';
 
 const ContactList = ({ contactList, onDeleteContact }) => {
-  console.log(contactList);
+  //   console.log(contactList);
   return (
     <ul className={styles.contactList}>
       {contactList.map(({ id, name, number }) => {
@@ -29,7 +29,7 @@ const getVisibleContacts = (arrContacts, filter) => {
 };
 
 const mapStateToProps = state => {
-  const { contacts, filter } = state;
+  const { contacts, filter } = state.phonebook;
 
   const visidleContacts = getVisibleContacts(contacts, filter);
 
