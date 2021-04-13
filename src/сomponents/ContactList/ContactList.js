@@ -4,7 +4,6 @@ import actions from '../../redux/contacts-actions';
 import styles from './ContactList.module.css';
 
 const ContactList = ({ contactList, onDeleteContact }) => {
-  //   console.log(contactList);
   return (
     <ul className={styles.contactList}>
       {contactList.map(({ id, name, number }) => {

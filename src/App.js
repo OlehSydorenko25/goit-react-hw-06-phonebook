@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import Container from './сomponents/Container/Container';
 import ContactForm from './сomponents/ContactForm/ContactForm';
 import Filter from './сomponents/Filter/Filter';
@@ -19,8 +18,4 @@ const App = () => {
   );
 };
 
-const mapStateToProps = state => ({
-  contactList: state.contacts,
-});
-
-export default connect(mapStateToProps)(App);
+export default App;

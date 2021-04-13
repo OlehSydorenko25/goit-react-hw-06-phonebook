@@ -29,6 +29,17 @@ class ContactForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
+
+    const findName = this.props.phonebook.contacts.find(
+      contact => contact.name.toLowerCase() === this.state.name.toLowerCase(),
+    );
+
+    if (findName) {
+      alert(`${this.state.name} is already in contacts!`);
+      this.reset();
+      return;
+    }
+
     this.props.onSubmit(this.state);
     this.reset();
   };
@@ -71,8 +82,10 @@ class ContactForm extends Component {
   }
 }
 
+const mapStateToProps = state => state;
+
 const mapDispatchToProps = dispatch => ({
   onSubmit: value => dispatch(actions.addContact(value)),
 });
 
-export default connect(null, mapDispatchToProps)(ContactForm);
+export default connect(mapStateToProps, mapDispatchToProps)(ContactForm);
